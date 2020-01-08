@@ -11,3 +11,5 @@ DROP DATABASE IF EXISTS testdb;
 CREATE DATABASE testdb;
 
 Select * FROM users;
+
+--test
