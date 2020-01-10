@@ -5,6 +5,7 @@ var router = require("./router");
 var bodyParser = require('body-parser');
 var cors = require('cors');
 var db = require("./models");
+var app = express();
 var PORT = process.env.PORT || 3000;
 
 // Middleware
