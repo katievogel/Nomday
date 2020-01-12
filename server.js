@@ -1,7 +1,7 @@
 //Dependencies
 require("dotenv").config();
 var express = require("express");
-var router = require("./router.js");
+var router = require("./router");
 var bodyParser = require('body-parser');
 var cors = require('cors');
 var db = require("./models");
