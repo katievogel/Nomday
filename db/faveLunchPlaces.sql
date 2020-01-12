@@ -4,13 +4,11 @@ USE fave_lunch_db;
 
 CREATE TABLE fave_lunches(
 	id INTEGER AUTO_INCREMENT NOT NULL PRIMARY KEY,
-    username VARCHAR (100) NOT NULL,
     place_name VARCHAR (100) NOT NULL,
     place_website VARCHAR (200),
     place_rank INTEGER (1) NOT NULL,
-    place_last_visit_date DATE (20) NOT NULL,
-    place_fave_item VARCHAR (100) NOT NULL,
-    comments VARCHAR (200)
+    place_last_visit_date DATE NOT NULL,
+    place_fave_item VARCHAR (100) NOT NULL
 );
 
 DROP DATABASE IF EXISTS testdb;
