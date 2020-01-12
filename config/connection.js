@@ -9,7 +9,7 @@ if (process.env.JAWSDB_URL) {
     port: 3306,
     user: "root",
     password: process.env.MYSQL_KEY,
-    database: "globalFP_db"
+    database: "fave_lunch_db"
   });
 }
 
