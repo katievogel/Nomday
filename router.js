@@ -6,3 +6,5 @@ const restaurantCtlr= require("./controllers/restaurantCtlr.js");
 router
   .route("/api/restaurants")
   .get(restaurantCtlr.findAll);
+
+  module.exports = router
