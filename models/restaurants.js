@@ -1,18 +1,26 @@
 module.exports = function (sequelize, DataTypes) {
-  var Users = sequelize.define(
-    "Users",
+  var Restaurants = sequelize.define(
+    "Restaurants",
     {
-      userID: {
+      restID: {
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true
       },
-      username: {
+      place_name: {
         type: DataTypes.STRING,
         allowNull: false
       },
-      user_email: {
+      place_website: {
         type: DataTypes.STRING,
+        allowNull: true
+      },
+      place_last_visit_date: {
+        type: DataTypes.DATEONLY,
+        allowNull: false
+      },
+      place_rank: {
+        type: DataTypes.INTEGER,
         allowNull: false
       }
     },
@@ -20,5 +28,5 @@ module.exports = function (sequelize, DataTypes) {
       timestamps: false
     }
   );
-  return Users;
+  return Restaurants;
 };
