@@ -2,26 +2,31 @@ DROP DATABASE IF EXISTS fave_lunch_db;
 CREATE DATABASE fave_lunch_db;
 USE fave_lunch_db;
 
-CREATE TABLE fave_lunches(
-	id INTEGER AUTO_INCREMENT NOT NULL PRIMARY KEY,
+CREATE TABLE restaurants(
+	restID INTEGER AUTO_INCREMENT NOT NULL PRIMARY KEY,
     place_name VARCHAR (100) NOT NULL,
     place_website VARCHAR (200),
-    place_rank INTEGER (1) NOT NULL,
     place_last_visit_date DATE NOT NULL,
-    place_fave_item VARCHAR (100) NOT NULL
+    place_rank INTEGER (1) NOT NULL  
 );
 
 CREATE TABLE users(
-	id INTEGER AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	userID INTEGER AUTO_INCREMENT NOT NULL PRIMARY KEY,
     username VARCHAR (100) NOT NULL,
-    place_name VARCHAR (100) NOT NULL,
+    user_email VARCHAR (100) NOT NULL
+    );
+
+CREATE TABLE ratings(
+	ratingsID INTEGER AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    userID INTEGER NOT NULL,
+    restID INTEGER NOT NULL,
     place_rank INTEGER (1) NOT NULL,
-    place_last_visit_date DATE NOT NULL,
-    place_fave_item VARCHAR (100) NOT NULL,
+    visit_date DATE NOT NULL,
+    fave_item VARCHAR (100),
     comments VARCHAR (250)
 );
 
 DROP DATABASE IF EXISTS testdb;
 CREATE DATABASE testdb;
 
-Select * FROM fave_lunches;
+Select * FROM restaurants;
