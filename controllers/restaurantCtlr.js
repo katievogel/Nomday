@@ -2,33 +2,30 @@ var db = require("../models");
 require("../config/connection.js");
 
 module.exports = {
-    findAll: function (app) {
-        // Load index page
+    // Load index page
+    findAll: function (app) { 
         app.get("/", function (req, res) {
             res.render("index", { fave_lunch_db: [] });
         });
     },
-//find a restaurant already in the database, if it does not exist, give option to add. if it does exist, update with latest visit date and add new record with rating to lunch spots db.  Add new entry to user db new or not.
-    findOneAndUpdate: function (app) {
-        app.post("/add_spot", function (req, res){
-            db.LunchSpot.findOne({ where: { place_name: req.body.restaurant }}).then(function(dbLunchSpot){
-                var addRestToUserDB = dbLunchSpot.place_name;
+    //Find a restaurant already in the database, if it does not exist, give option to add. If it does exist, update with user inputs to ratings table and restaurants table. Add new entry to ratings table new or not.
+    findOrCreate: function (app) {
+        app.post("/addrestaurant", function (req, res){
+            db.Restaurants.findOrCreate({ where: { place_name: req.body.restaurant }, defaults: {restID: req.body.restID, place_last_visit_date: req.body.lastVisitDate, place_rank: req.body.rank}}).then(([restaurant, created])=> {
+                console.log(restaurant.get({
+                    plain: true
+                }))
+                console.log(created);
 
-                addRestToUserDB(req.body.place_name, addRestToUserDB);
-
-                db.Users.findAll().then(function(tableRes){
+                db.Ratings.findAll().then(function(tableRes){
                     res.render("index", {
-                        lunchSpots: [dbLunchSpot.dataValues],
+                        Restaurants: [dbRestaurants.dataValues],
                         Users: tableRes 
                     });
                 });
             });
         });
-        function addNewRestToDB(restaurant, addRestToUserDB) {
-            db.Users.create({
-                restaurant: place_name,
-
-            })
-        }
+        
     }
 };
+
