@@ -7,13 +7,14 @@ CREATE TABLE restaurants(
     place_name VARCHAR (100) NOT NULL,
     place_website VARCHAR (200),
     place_last_visit_date DATE NOT NULL,
-    place_rank INTEGER (1) NOT NULL  
+    place_rank INTEGER (1) DEFAULT "0"
 );
 
 CREATE TABLE users(
 	userID INTEGER AUTO_INCREMENT NOT NULL PRIMARY KEY,
     username VARCHAR (100) NOT NULL,
-    user_email VARCHAR (100) NOT NULL
+    user_email VARCHAR (100) NOT NULL,
+    UNIQUE (username)
     );
 
 CREATE TABLE ratings(
