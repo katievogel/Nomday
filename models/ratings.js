@@ -4,6 +4,7 @@ module.exports = function (sequelize, DataTypes) {
         {
             ratingsID: {
                 type: DataTypes.INTEGER,
+                autoIncrement: true,
                 allowNull: false,
                 primaryKey: true
             },
@@ -28,7 +29,7 @@ module.exports = function (sequelize, DataTypes) {
                 allowNull: true
             },
             comments: {
-                type: DataType.STRING,
+                type: DataTypes.STRING,
                 allowNull: true
             }
         },
