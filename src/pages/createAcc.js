@@ -77,7 +77,7 @@ class CreateAccount extends Component {
                                 <button onClick={this.nameSubmit}>
                                 Create Account
                                 </button>
-                                <Link to="/">
+                                <Link to="/login">
                                 Already have an account?
                                 </Link>
                             </div>
