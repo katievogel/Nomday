@@ -21,7 +21,7 @@ class LogIn extends Component {
         })
             .then(res => {
                 console.log(`User has logged in a ${(JSON.stringify(res.username))}`)
-                this.props.history.push("/restaurants");
+                this.props.history.push("/login");
             }).catch(err => {
                 console.log(err)
             })
